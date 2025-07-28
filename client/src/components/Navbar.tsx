@@ -6,27 +6,28 @@ const Navbar = () => {
     const { scrollY } = useScroll();
 
     const [visible, setVisible] = useState(false);
-    const [prev, setPrev] = useState(0);
+    // const [prev, setPrev] = useState(0);
 
     const parentVariants = {
-        visible: { opacity: 1, y: 0},
+        visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: "-4rem" },
     }
 
     function trackMotion(latest: number, prev: number){
+        console.log(`latest : ${latest} and prev : ${prev}`)
         if(latest < prev){
             setVisible(false);
             console.log("visible");
         }
-        else if (latest > 150 && latest > prev) {
+        else if (latest > 40 && latest > prev) {
          setVisible(true);
          console.log("hidden");
     }
     }
 
     useMotionValueEvent(scrollY, "change", (latest: number) => {
-        trackMotion(latest, prev);
-        setPrev(latest);
+        trackMotion(latest, 200);
+        // setPrev(latest);
     })
 
 
@@ -41,7 +42,7 @@ const Navbar = () => {
         staggerChildren: 0.05,
         }}
 
-        className='fixed inset-x-0 top-2 flex bg-blue-300/50 justify-between shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] items-center max-w-3xl mx-auto rounded-lg  px-2 py-3'>
+        className='fixed backdrop-blur-xl inset-x-0 top-2 flex bg-blue-300/50 justify-between shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] items-center max-w-3xl mx-auto rounded-lg  px-2 py-3'>
         <div className='flex items-center ml-2 gap-3'>
             <BsFillPatchQuestionFill color='red' className='cursor-pointer border-2 border-black shadow-[4px_4px_0_#000] roudned-lg size-9 -rotate-15'/>
             <div className='text-neutral-200 text-xl rounded-sm p-0.5 cursor-pointer font-primary'>
@@ -62,7 +63,7 @@ const Navbar = () => {
                y: { duration: 0.3, ease: "easeInOut" },
                backgroundColor: { duration: 3 },
              }}
-             className=' bg-yellow-300 shadow-[4px_4px_0_#000] rounded-sm h-[30px] w-[120px] mr-3 border-2 font-primary border-black cursor-pointer'>Login</motion.button>
+             className='opacity-0 md:bg-yellow-300 opacity-100 shadow-[4px_4px_0_#000] rounded-sm h-[30px] w-[120px] mr-3 border-2 font-primary border-black cursor-pointer'>Login</motion.button>
             <motion.button 
             initial={{
                 y:0
