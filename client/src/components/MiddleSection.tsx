@@ -4,7 +4,7 @@ import { BiSolidMessage } from 'react-icons/bi';
 import { RiRobot3Fill } from 'react-icons/ri';
 import { HiTrophy } from 'react-icons/hi2';
 import { FaUserGraduate } from 'react-icons/fa';
-import { RiRobot2Fill } from 'react-icons/ri';
+import { SiMusicbrainz } from "react-icons/si";
 
 const MiddleSection = () => {
   return (
@@ -72,10 +72,10 @@ const MiddleSection = () => {
             </div>
             <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
                 <div>
-                    <RiRobot2Fill className='bg-blue-300 p-2 border-2 rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='black' size={60}/>
+                    <SiMusicbrainz className='bg-blue-300 p-2 border-2 rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='black' size={60}/>
                 </div>
                 <div className='font-primary mt-5 text-xl'>
-                   	Tag Mentors
+                   	AI Suggestions
                 </div>
                 <div className='font-secondary mt-2'>
                     <p>	Get instant, GPT-generated answers to commonly asked academic questions <span className='italic'>(comming soon)</span></p>

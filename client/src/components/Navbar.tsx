@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 const Navbar = () => {
@@ -63,7 +63,7 @@ const Navbar = () => {
                y: { duration: 0.3, ease: "easeInOut" },
                backgroundColor: { duration: 3 },
              }}
-             className='opacity-0 md:bg-yellow-300 opacity-100 shadow-[4px_4px_0_#000] rounded-sm h-[30px] w-[120px] mr-3 border-2 font-primary border-black cursor-pointer'>Login</motion.button>
+             className='md:bg-yellow-300 shadow-[4px_4px_0_#000] rounded-sm h-[30px] w-[120px] mr-3 border-2 font-primary border-black cursor-pointer'>Login</motion.button>
             <motion.button 
             initial={{
                 y:0
