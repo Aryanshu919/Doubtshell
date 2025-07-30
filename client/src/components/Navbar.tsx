@@ -44,7 +44,7 @@ const Navbar = () => {
 
         className='fixed backdrop-blur-xl inset-x-0 top-2 flex bg-blue-300/50 justify-between shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] items-center max-w-3xl mx-auto rounded-lg  px-2 py-3'>
         <div className='flex items-center ml-2 gap-3'>
-            <BsFillPatchQuestionFill color='red' className='cursor-pointer border-2 border-black shadow-[4px_4px_0_#000] roudned-lg size-9 -rotate-15'/>
+            <BsFillPatchQuestionFill color='red' className='cursor-pointer border-2 border-black shadow-[4px_4px_0_#000] bg-white roudned-lg size-9 -rotate-15'/>
             <div className='text-neutral-200 text-xl rounded-sm p-0.5 cursor-pointer font-primary'>
                DOUBTSHELL
             </div>
