@@ -1,10 +1,19 @@
-import { FaArrowRight } from "react-icons/fa";
-import { motion } from "motion/react"
-export const HeroSection = () => {
- 
+import { motion } from "motion/react";
+import { FaArrowRight, FaUserGraduate } from "react-icons/fa";
+import { MdPushPin } from "react-icons/md";
+import { RiRobot3Fill } from "react-icons/ri";
+import { HiTrophy } from "react-icons/hi2";
+import { SiMusicbrainz } from "react-icons/si";
+import { BiSolidMessage } from "react-icons/bi";
+import { BsFillPatchQuestionFill } from "react-icons/bs";
+
+export const Home = () => {
+
+    const Links = ["PRIVACY", "TERMS", "SUPPORT", "API", "STATUS"];
   return (
-    <div>
-        <div className='bg-blue-300 pt-40 pb-40'>
+    <>
+    {/* hero section */}
+     <div className='bg-blue-300 pt-40 pb-40'>
             <motion.div 
               initial={{ opacity: 0, y:-20 }}
               animate={{ opacity: 1, y:0 }}
@@ -65,8 +74,135 @@ export const HeroSection = () => {
                  </div>
             </motion.div>
         </div>
-     
+       
+       {/* Middle Section  */}
+
+        <div className='bg-rose-300 py-20'>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }}
+                transition={{
+                    ease: [0.1, 0.25, 0.3, 1],
+                    duration: 0.8,
+                    staggerChildren: 0.05,
+                }}
+                variants={{
+                    visible: { opacity: 1, y: 0},
+                    hidden: { opacity: 0, y: -25 }
+                }}
+            className='text-center font-primary text-xl sm:text-3xl'>
+                <h1>We Provide the best features</h1>
+
+                <p className='font-secondary mt-2 text-lg'>Everything you need to master your subject game</p>
+            </motion.div>
+        <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        transition={{
+            ease: [0.1, 0.25, 0.3, 1],
+            duration: 0.8,
+            staggerChildren: 0.05,
+        }}
+        variants={{
+            visible: { opacity: 1, y: 0},
+            hidden: { opacity: 0, y: -25 }
+        }}
+        className='grid max-w-[1280px] mx-auto content-center m-10 grid-rows-2 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-y-6 gap-x-4 p-5'>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <MdPushPin className='bg-red-300 p-2 border-2 rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='white' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                    Organized Doubts
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>	Tag doubts by subject and topic to keep everything neat and easily searchable.</p>
+                </div>
+            </div>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <BiSolidMessage className='bg-yellow-300 p-2 border-2 -rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='black' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                    Peer-Reviewed
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>Upvote/downvote answers so the best, most accurate responses rise to the top.</p>
+                </div>
+            </div>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <RiRobot3Fill className='bg-orange-300 p-2 border-2 rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='white' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                   	Anonymous Mode
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>Ask questions privately to avoid hesitation or judgment from peers.</p>
+                </div>
+            </div>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <HiTrophy className='bg-blue-300 p-2 border-2 -rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='black' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                   	Leaderboards
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>Encourage helpfulness with rankings for top doubt-solvers by subject.</p>
+                </div>
+            </div>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <FaUserGraduate className='bg-blue-300 p-2 border-2 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='white' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                   	Tag Mentors
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>Invite teachers or mentors for expert guidance on complex questions.</p>
+                </div>
+            </div>
+            <div className='bg-neutral-200 border-4 p-10 shadow-[4px_4px_0_#000]'>
+                <div>
+                    <SiMusicbrainz className='bg-blue-300 p-2 border-2 rotate-12 mb-2 rounded-xs shadow-[2px_2px_0_#000] border-black' color='black' size={60}/>
+                </div>
+                <div className='font-primary mt-5 text-xl'>
+                   	AI Suggestions
+                </div>
+                <div className='font-secondary mt-2'>
+                    <p>	Get instant, GPT-generated answers to commonly asked academic questions <span className='italic'>(comming soon)</span></p>
+                </div>
+            </div>
+
+        </motion.div>
+     </div>
+
+     {/* FOOTER SECTION  */}
+
+    <div className='bg-black py-30'>
+        <div className='flex items-center justify-center ml-2 gap-5'>
+            <BsFillPatchQuestionFill color='orange' className='cursor-pointer border-2 border-white rounded-sm shadow-[4px_4px_0_#fff] bg-white roudned-lg size-9 -rotate-15'/>
+            <div className='text-neutral-200 text-xl rounded-sm p-0.5 cursor-pointer font-primary'>
+               DOUBTSHELL
+            </div>
+        </div>
+        <div className='flex flex-col items-center sm:flex-row justify-center gap-10 mt-10 font-secondary font-semibold'>
+            {
+                Links.map(((link,index) => (
+                    <div key={index} className='text-white cursor-pointer'>{link} </div>
+                )))
+            }
+        </div>
+        <div className='flex justify-center mt-10'>
+            <p className='text-white font-secondary '>© 2025 Doubtshell. Built with ❤️ for Students.</p>
+        </div>
     </div>
+
+  
+
+    </>
   )
 }
-

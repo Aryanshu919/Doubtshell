@@ -14,14 +14,11 @@ const Navbar = () => {
     }
 
     function trackMotion(latest: number, prev: number){
-        console.log(`latest : ${latest} and prev : ${prev}`)
         if(latest < prev){
             setVisible(false);
-            console.log("visible");
         }
         else if (latest > 40 && latest > prev) {
          setVisible(true);
-         console.log("hidden");
     }
     }
 

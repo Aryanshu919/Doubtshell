@@ -1,17 +1,17 @@
 import './App.css'
-import { HeroSection } from './components/HeroSection'
-import MiddleSection from './components/MiddleSection'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import { Routes, Route } from "react-router-dom";
+import { Home } from './pages/Home';
 
 function App() {
   return (
     <>
     <div className='bg-blue-300 t'>
         <Navbar/>
-        <HeroSection/>
-        <MiddleSection/>
-        <Footer />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+        </Routes>
+
 
     </div>
     </>
