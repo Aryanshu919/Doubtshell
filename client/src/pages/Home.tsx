@@ -5,11 +5,10 @@ import { RiRobot3Fill } from "react-icons/ri";
 import { HiTrophy } from "react-icons/hi2";
 import { SiMusicbrainz } from "react-icons/si";
 import { BiSolidMessage } from "react-icons/bi";
-import { BsFillPatchQuestionFill } from "react-icons/bs";
+import Footer from "../components/Footer";
 
 export const Home = () => {
 
-    const Links = ["PRIVACY", "TERMS", "SUPPORT", "API", "STATUS"];
   return (
     <>
     {/* hero section */}
@@ -181,25 +180,8 @@ export const Home = () => {
      </div>
 
      {/* FOOTER SECTION  */}
+     <Footer/>
 
-    <div className='bg-black py-30'>
-        <div className='flex items-center justify-center ml-2 gap-5'>
-            <BsFillPatchQuestionFill color='orange' className='cursor-pointer border-2 border-white rounded-sm shadow-[4px_4px_0_#fff] bg-white roudned-lg size-9 -rotate-15'/>
-            <div className='text-neutral-200 text-xl rounded-sm p-0.5 cursor-pointer font-primary'>
-               DOUBTSHELL
-            </div>
-        </div>
-        <div className='flex flex-col items-center sm:flex-row justify-center gap-10 mt-10 font-secondary font-semibold'>
-            {
-                Links.map(((link,index) => (
-                    <div key={index} className='text-white cursor-pointer'>{link} </div>
-                )))
-            }
-        </div>
-        <div className='flex justify-center mt-10'>
-            <p className='text-white font-secondary '>© 2025 Doubtshell. Built with ❤️ for Students.</p>
-        </div>
-    </div>
 
   
 
