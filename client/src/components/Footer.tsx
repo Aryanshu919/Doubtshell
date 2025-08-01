@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsFillPatchQuestionFill } from 'react-icons/bs'
 
 const Footer = () => {
