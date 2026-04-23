@@ -3,10 +3,11 @@ import Footer from "./Footer";
 import { useState, type FormEvent } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+import { SERVER_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,15 +22,17 @@ const Signup = () => {
     }));
   };
 
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
 
-    const res = await axios.post(`${SERVER_URL}/api/auth/register`, formData, {withCredentials:true})
+    const res = await axios.post(`${SERVER_URL}/api/auth/register`, formData, {
+      withCredentials: true,
+    });
     console.log("form data", res);
-    toast.success("Registered successfully")
+    toast.success("Registered successfully");
 
-    setFormData({ name:'', email:'', password:''})
+    setFormData({ name: "", email: "", password: "" });
+    navigate("/");
   }
 
   return (

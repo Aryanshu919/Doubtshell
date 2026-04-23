@@ -1,8 +1,17 @@
 import { motion } from "motion/react";
 import Footer from "./Footer";
 import { useState, type FormEvent } from "react";
+import axios from "axios";
+import { SERVER_URL } from "../config";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser, setToken } from "../slices/authSlices";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,13 +25,23 @@ const Login = () => {
     }));
   };
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>): void {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
-    console.log("loggin the event", e);
-    console.log("form data", formData);
+    const { email, password } = formData;
+    console.log("server url is", SERVER_URL);
+    const res = await axios.post(
+      `${SERVER_URL}/api/auth/login`,
+      { email, password },
+      { withCredentials: true },
+    );
+    console.log("form data", res);
+    toast.success("Logged in successfully");
+    dispatch(setUser(res.data.user));
+    dispatch(setToken(res.data.token));
+    setFormData({ email: "", password: "" });
+    navigate("/explore");
   }
 
-  
   return (
     <div>
       <motion.div

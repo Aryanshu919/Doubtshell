@@ -16,25 +16,32 @@ model User {
   password  String
   reputation Int       @default(0)
   createdAt DateTime   @default(now())
-
+  imageUrl String?
+  votes     Int       @default(0)
   questions Question[]
   answers   Answer[]
+  bookmarks  Bookmark[]
+
 }
 
 model Question {
   id        String     @id @default(uuid())
   title     String
   body      String
-  subject   String
   tags      String[]
   isSolved  Boolean    @default(false)
   anonymous Boolean    @default(false)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  imageUrl String?
 
   userId    String
   user      User       @relation(fields: [userId], references: [id])
   answers   Answer[]
+  bookmarks   Bookmark[]
+
+  @@index([createdAt, id])
+  @@unique(name: "Question_createdAt_id_key", fields: [createdAt, id])
 }
 
 model Answer {
@@ -51,4 +58,15 @@ model Answer {
 
   question   Question   @relation(fields: [questionId], references: [id])
   user       User       @relation(fields: [userId], references: [id])
+}
+
+model Bookmark {
+  userId     String
+  questionId String
+  createdAt  DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id])
+  question   Question @relation(fields: [questionId], references: [id])
+
+  @@id([userId, questionId])
 }
