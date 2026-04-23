@@ -6,7 +6,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ['http://localhost:5173', "https://doubtshellclient.vercel.app"],// your frontend origin
+  origin: ['http://localhost:5173', 'https://doubtshellclient-pi.vercel.app'],// your frontend origin
   credentials: true,               // 🚨 allow cookies
 }));
 app.use(express.json());
